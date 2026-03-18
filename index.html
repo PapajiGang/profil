@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Profile Yoga Andri</title>
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Lato&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background: #f5f6fa;
+}
+
+.container {
+  max-width: 720px;
+  margin: auto;
+  background: #fff;
+  min-height: 100vh;
+}
+
+/* HERO */
+.hero {
+  background: #f9fafb;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1D9E75, #1D9E75aa);
+  color: white;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-family: 'Playfair Display';
+}
+
+.name {
+  font-size: 28px;
+  font-family: 'Playfair Display';
+  margin: 10px 0 5px;
+}
+
+.title {
+  font-size: 13px;
+  color: gray;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.tags {
+  margin-bottom: 15px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  background: #e8f7f2;
+  color: #1D9E75;
+  margin: 3px;
+}
+
+.bio {
+  font-size: 14px;
+  color: #666;
+  max-width: 500px;
+  margin: auto;
+}
+
+/* BODY */
+.body {
+  padding: 25px;
+}
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.stat {
+  text-align: center;
+  padding: 15px;
+}
+
+.stat h2 {
+  margin: 0;
+  font-family: 'Playfair Display';
+}
+
+.stat small {
+  color: gray;
+  font-size: 11px;
+}
+
+/* SECTION */
+.section-title {
+  font-family: 'Playfair Display';
+  margin-bottom: 10px;
+}
+
+/* SKILL */
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.skill-name {
+  width: 120px;
+  font-size: 13px;
+}
+
+.bar {
+  flex: 1;
+  height: 5px;
+  background: #eee;
+  border-radius: 5px;
+}
+
+.fill {
+  height: 5px;
+  background: #1D9E75;
+  border-radius: 5px;
+}
+
+/* EXP */
+.exp {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+
+.exp-title {
+  font-weight: bold;
+}
+
+.exp-sub {
+  font-size: 13px;
+  color: gray;
+}
+
+/* CONTACT */
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.contact-box {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  background: #e8f7f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+  margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="avatar" id="avatar"></div>
+    <div class="name" id="name"></div>
+    <div class="title" id="title"></div>
+    <div class="tags" id="tags"></div>
+    <p class="bio" id="bio"></p>
+  </div>
+
+  <div class="body">
+
+    <!-- STATS -->
+    <div class="stats" id="stats"></div>
+
+    <!-- SKILLS -->
+    <h3 class="section-title">Keahlian</h3>
+    <div id="skills"></div>
+
+    <hr>
+
+    <!-- EXPERIENCE -->
+    <h3 class="section-title">Pengalaman</h3>
+    <div id="exp"></div>
+
+    <hr>
+
+    <!-- CONTACT -->
+    <h3 class="section-title">Kontak</h3>
+    <div class="contact" id="contact"></div>
+
+    <div class="footer">© 2026 Yoga Andri</div>
+
+  </div>
+</div>
+
+<script>
+const data = {
+  name: "Yoga Andri",
+  title: "Web Developer · Indonesia",
+  bio: "Web Developer yang fokus pada Laravel, PHP, dan sistem berbasis web seperti absensi dan CRUD.",
+  
+  tags: ["Laravel", "PHP", "Web Dev", "API"],
+
+  stats: [
+    { label: "Tahun", value: "2+" },
+    { label: "Project", value: "10+" },
+    { label: "Aplikasi", value: "5+" }
+  ],
+
+  skills: [
+    { name: "PHP", pct: 85 },
+    { name: "Laravel", pct: 80 },
+    { name: "MySQL", pct: 75 },
+    { name: "HTML/CSS", pct: 90 },
+    { name: "JavaScript", pct: 65 }
+  ],
+
+  exp: [
+    { job: "Web Developer", company: "Freelance", year: "2024 - Sekarang", color: "#1D9E75" },
+    { job: "Absensi Laravel", company: "Project", year: "2023 - 2024", color: "#378ADD" }
+  ],
+
+  contact: [
+    { icon: "✉", value: "yoga@email.com" },
+    { icon: "☎", value: "+62 xxx" },
+    { icon: "GH", value: "github.com/PapajiGang" }
+  ]
+};
+
+// avatar initials
+document.getElementById("avatar").innerText =
+  data.name.split(" ").map(w => w[0]).join("").slice(0,2);
+
+// set basic
+document.getElementById("name").innerText = data.name;
+document.getElementById("title").innerText = data.title;
+document.getElementById("bio").innerText = data.bio;
+
+// tags
+data.tags.forEach(t => {
+  document.getElementById("tags").innerHTML += `<span class="tag">${t}</span>`;
+});
+
+// stats
+data.stats.forEach(s => {
+  document.getElementById("stats").innerHTML += `
+    <div class="stat">
+      <h2>${s.value}</h2>
+      <small>${s.label}</small>
+    </div>`;
+});
+
+// skills
+data.skills.forEach(s => {
+  document.getElementById("skills").innerHTML += `
+    <div class="skill">
+      <div class="skill-name">${s.name}</div>
+      <div class="bar"><div class="fill" style="width:${s.pct}%"></div></div>
+      <small>${s.pct}%</small>
+    </div>`;
+});
+
+// exp
+data.exp.forEach(e => {
+  document.getElementById("exp").innerHTML += `
+    <div class="exp">
+      <div class="dot" style="background:${e.color}"></div>
+      <div>
+        <div class="exp-title">${e.job}</div>
+        <div class="exp-sub">${e.company} · ${e.year}</div>
+      </div>
+    </div>`;
+});
+
+// contact
+data.contact.forEach(c => {
+  document.getElementById("contact").innerHTML += `
+    <div class="contact-box">
+      <div class="icon">${c.icon}</div>
+      <div>${c.value}</div>
+    </div>`;
+});
+</script>
+
+</body>
+</html>
